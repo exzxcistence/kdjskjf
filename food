@@ -1,0 +1,11 @@
+food = int(input())
+def print_pack_report(food):
+    if food % 3 == 0 and food % 5 == 0:
+        return f'{food} - расфасуем по 3 или по 5'
+    elif food % 3 == 0 and food % 5 != 0:
+        return f'{food} - расфасуем по 3'
+    elif food % 3 != 0 and food % 5 == 0:
+        return f'{food} - расфасуем по 5'
+    elif food % 3 != 0 and food % 5 != 0:
+        return f'{food} - не заказываем!'
+print(print_pack_report(food))
