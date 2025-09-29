@@ -28,6 +28,8 @@ def script(n, b, j):
                 if ind + b > 33:
                     b -= 33
                 result += ensmall[ind + b]
+            elif h == ' ':
+                result += ' ' 
     else:
         for i in range(len(n)):
             h = n[i]
@@ -59,6 +61,8 @@ def script(n, b, j):
                     result += ensmall[b]
                 else:
                     result += ensmall[ind - b]
+            elif h == ' ':
+                result += ' ' 
     return result
 
 
