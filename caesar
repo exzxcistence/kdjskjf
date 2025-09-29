@@ -1,0 +1,73 @@
+russmall = 'абвгдеёжзийклмнопрстуфхцчшщъыьэюя'
+rusbig = 'АБВГДЕЁЖЗИЙКЛМНОПРСТУФХЦЧШЩЪЫЬЭЮЯ'
+ensmall = 'abcdefghijklmnopqrstuvwxyz'
+enbig = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'
+
+def script(n, b, j):
+    result = ''
+    if j == 0:
+        for i in range(len(n)):
+            h = n[i]
+            if h in russmall:
+                ind = russmall.index(h)
+                if ind + b > 33:
+                    b -= 33
+                result += russmall[ind + b]
+            elif h in rusbig:
+                ind = rusbig.index(h)
+                if ind + b > 33:
+                    b -= 33
+                result += rusbig[ind + b]
+            elif h in enbig:
+                ind = enbig.index(h)
+                if ind + b > 33:
+                    b -= 33
+                result += enbig[ind + b]
+            elif h in ensmall:
+                ind = ensmall.index(h)
+                if ind + b > 33:
+                    b -= 33
+                result += ensmall[ind + b]
+    else:
+        for i in range(len(n)):
+            h = n[i]
+            if h in russmall:
+                ind = russmall.index(h)
+                if ind - b <= 0:
+                    b = (ind - b) * (-1)
+                    result += russmall[b]
+                else:
+                    result += russmall[ind - b]
+            elif h in rusbig:
+                ind = rusbig.index(h)
+                if ind - b <= 0:
+                    b = (ind - b) * (-1)
+                    result += rusbig[b]
+                else:
+                    result += rusbig[ind - b]
+            elif h in enbig:
+                ind = enbig.index(h)
+                if ind - b <= 0:
+                    b = (ind - b) * (-1)
+                    result += enbig[b]
+                else:
+                    result += enbig[ind - b]
+            elif h in ensmall:
+                ind = ensmall.index(h)
+                if ind - b <= 0:
+                    b = (ind - b) * (-1)
+                    result += ensmall[b]
+                else:
+                    result += ensmall[ind - b]
+    return result
+
+
+
+print('введите 0 для кодировки или 1 для декодировки')
+cod = int(input())
+print('Введите сдвиг')
+rot = int(input())
+print('Введите строку')
+string = input()
+
+print(script(string, rot, cod))
