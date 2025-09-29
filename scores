@@ -1,0 +1,12 @@
+points = list(map(int, input().split()))
+stas_point = int(input())
+points.sort()
+
+def check_winners(scores, student_score):
+    if student_score in scores[-3:]:
+        return 'Вы в тройке победителей!'
+    else:
+        return 'Вы не попали в тройку победителей.'
+
+
+print(check_winners(points,stas_point))
