@@ -1,0 +1,32 @@
+def logic(quest, request, secret):
+    secret = list(secret)
+    quest = list(quest)
+    for i in range(len(request)):
+        x = request[i]
+        cnt = quest.count(x)
+        for i in range(cnt):
+            indexfind = quest.index(x)
+            secret[indexfind] = quest[indexfind]
+
+    secret = ''.join(secret)
+    return secret
+
+def f(quest,x, secret):
+    print('У тебя 8 попыток!')
+    print(f'Слово состоит из {x} букв')
+    print(secret)
+    attemps = 0
+    while attemps != 8:
+        request = input()
+        if request in quest:
+            print('Правильно!')
+            logic(quest,request, secret)
+            print(secret)
+            if '_' not in secret:
+                return 'Ты победил!'
+        else:
+            attemps += 1
+            print(f'Мимо! У тебя осталось {8- attemps} попыток')
+
+    if attemps == 8:
+        return 'Ты проиграл!'
